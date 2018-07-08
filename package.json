@@ -1,0 +1,28 @@
+{
+  "name": "paths_of_glory",
+  "version": "1.0.0",
+  "description": "Wordpress theme with Gulp and Underscores",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andy Smith",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.24.5",
+    "es6-promise": "^4.2.4",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-rename": "^1.3.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "jshint": "^2.9.5"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}

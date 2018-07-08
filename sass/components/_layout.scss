@@ -1,0 +1,21 @@
+.content-area,
+.container-add {
+  margin: auto;
+  max-width: 1240px;
+  width: 90%;
+}
+
+.header-container {
+  display: flex;
+}
+
+.site-branding {
+  flex: 3;
+}
+
+.main-navigation {
+  flex: 7;
+  display: flex;
+  justify-content: flex-end;
+  align-self: center;
+}
