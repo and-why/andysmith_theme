@@ -1,0 +1,17 @@
+.casestudies__grid-wrapper {
+ margin:16px 0;
+  display:flex;
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+}
+.casestudies__grid-left {
+  grid-column: 1 / 2;
+  grid-row: auto;
+  flex: 1;
+}
+.casestudies__grid-right {
+  grid-column: 2 / 4;
+  flex: 3;
+  grid-row: auto;
+}
+

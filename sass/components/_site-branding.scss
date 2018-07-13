@@ -2,18 +2,22 @@
   display: none;
 }
 
-.site-header {
-  background: $color__primary;
-}
-
 p.site-title {
   margin: 0;
 }
 
 .site-branding {
-  font-size: $size-l;
+  font-size: $size-s;
 }
 
 .main-navigation li {
   margin: 0 $size-s;
+}
+
+.lead-summary {
+  font-size: 48px;
+  width: 65%;
+  font-style: italic;
+  font-weight: 100;
+  margin: 36px 0;
 }

@@ -1,4 +1,8 @@
 a {
+	text-decoration: none;
+	font-weight:bold;
+	border-bottom: 4px solid $color__primary;
+	padding-bottom:2px;
 	color: $color__link;
 
 	&:visited {
@@ -16,4 +20,8 @@ a {
 	&:active {
 		outline: 0;
 	}
+}
+
+a.no-decoration {
+	border-bottom: none;
 }

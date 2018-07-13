@@ -1,25 +1,24 @@
 require('es6-promise').polyfill();
 
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var plumber = require('gulp-plumber');
-var gutil = require('gulp-util');
-var concat = require('gulp-concat');
-var jshint = require('gulp-jshint');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-var imagemin = require('gulp-imagemin');
-var browserSync = require('browser-sync').create();
-var reload = browserSync.reload;
+let gulp = require('gulp');
+let sass = require('gulp-sass');
+let autoprefixer = require('gulp-autoprefixer');
+let plumber = require('gulp-plumber');
+let concat = require('gulp-concat');
+let eslint = require('gulp-eslint');
+let uglify = require('gulp-uglify');
+let rename = require('gulp-rename');
+let imagemin = require('gulp-imagemin');
+let cleanCSS = require('gulp-clean-css');
+let browserSync = require('browser-sync').create();
+let reload = browserSync.reload;
 
-var onError = function(err) {
-  console.log('An error occurred:', gutil.colors.magenta(err.message));
-  gutil.beep();
+function onError (error) {
+  console.log(error.toString());
   this.emit('end');
-};
+}
 
-gulp.task('images', function() {
+gulp.task('images', () => {
   return gulp
     .src('./images/src/*')
     .pipe(plumber({ errorHandler: onError }))
@@ -27,7 +26,7 @@ gulp.task('images', function() {
     .pipe(gulp.dest('./images/dist'));
 });
 
-gulp.task('sass', function() {
+gulp.task('sass', () => {
   return gulp
     .src('./sass/**/*.scss')
     .pipe(plumber({ errorHandler: onError }))
@@ -36,25 +35,35 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('js', function() {
+gulp.task('js', () => {
   return gulp
     .src(['./js/*.js'])
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'))
+    .pipe(eslint())
+    .pipe(eslint.format())
+    //.pipe(eslint.failAfterError())
     .pipe(concat('app.js'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
     .pipe(gulp.dest('./js'));
 });
 
-gulp.task('watch', function() {
+gulp.task('minify-css', () => {
+  return gulp.src('*.css')
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest('/'));
+});
+
+gulp.task('watch', () => {
   browserSync.init({
     files: ['./**/*.php'],
-    proxy: 'http://localhost/andysmithis/',
+    proxy: 'http://localhost/wordpress_dummy/wordpress',
   });
   gulp.watch('./sass/**/*.scss', ['sass', reload]);
   gulp.watch('./js/*.js', ['js', reload]);
   gulp.watch('images/src/*', ['images', reload]);
+
 });
 
 gulp.task('default', ['sass', 'js', 'images', 'watch']);
+
+gulp.task('prod', ['sass', 'js', 'minify-css', 'images']);

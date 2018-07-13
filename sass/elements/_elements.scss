@@ -1,5 +1,6 @@
 html {
 	box-sizing: border-box;
+	height:100%;
 }
 
 *,
@@ -10,8 +11,30 @@ html {
 
 body {
 	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
+	height:100%;
 }
-
+body:before {
+	content:'';
+	background-color:$color__primary;
+	opacity:0.1;
+	height:55vh;
+	width:75vw;
+	position: fixed;
+	bottom:0;
+	left:0;
+	z-index: -3;
+}
+body:after {
+	content:'';
+	background-color:$color__secondary;
+	opacity: 0.1;
+	height:55vh;
+	width:75vw;
+	position: absolute;
+	top:0;
+	right:0;
+	z-index: -2;
+}
 hr {
 	background-color: $color__background-hr;
 	border: 0;
@@ -31,3 +54,20 @@ figure {
 }
 
 @import "tables";
+
+h1,h2,h3,h4,h5 {
+	font-family:$font__headings;
+	text-rendering: optimizeLegibility;
+}
+h1 a,h2 a,h3 a, a.clean {
+	border-bottom: none;
+	padding-bottom:0;
+} 
+.heading_small-caps {
+  font-size:0.7em;
+  text-transform: uppercase;
+  font-weight:900;
+	color:$color__text-main-lighter;
+	font-family: $font__main;
+	text-rendering: optimizeLegibility;
+}

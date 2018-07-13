@@ -1,5 +1,5 @@
 /*!
-Theme Name: paths_of_glory
+Theme Name: andysmith_theme
 Theme URI: http://underscores.me/
 Author: Andy Smith
 Author URI: http://andysmith.is
@@ -52,7 +52,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 html {
-  line-height: 1.15;
+  line-height: 1.12;
   /* 1 */
   -webkit-text-size-adjust: 100%;
   /* 2 */ }
@@ -354,7 +354,7 @@ select,
 optgroup,
 textarea {
   color: #404040;
-  font-family: sans-serif;
+  font-family: "Alegreya Sans", sans-serif;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
@@ -363,7 +363,8 @@ h1, h2, h3, h4, h5, h6 {
   clear: both; }
 
 p {
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.5em;
+  text-rendering: optimizeLegibility; }
 
 dfn, cite, em, i {
   font-style: italic; }
@@ -405,7 +406,8 @@ big {
 # Elements
 --------------------------------------------------------------*/
 html {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  height: 100%; }
 
 *,
 *:before,
@@ -415,7 +417,30 @@ html {
 
 body {
   background: #fff;
-  /* Fallback for when there is no custom background color defined. */ }
+  /* Fallback for when there is no custom background color defined. */
+  height: 100%; }
+
+body:before {
+  content: '';
+  background-color: #21759b;
+  opacity: 0.1;
+  height: 75vh;
+  width: 75vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -3; }
+
+body:after {
+  content: '';
+  background-color: #c55454;
+  opacity: 0.1;
+  height: 75vh;
+  width: 75vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -2; }
 
 hr {
   background-color: #ccc;
@@ -456,6 +481,22 @@ figure {
 table {
   margin: 0 0 1.5em;
   width: 100%; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "Alegreya", serif;
+  text-rendering: optimizeLegibility; }
+
+h1 a, h2 a, h3 a, a.clean {
+  border-bottom: none;
+  padding-bottom: 0; }
+
+.heading_small-caps {
+  font-size: 0.7em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: gray;
+  font-family: "Alegreya Sans", sans-serif;
+  text-rendering: optimizeLegibility; }
 
 /*--------------------------------------------------------------
 # Forms
@@ -503,7 +544,7 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-  color: #666;
+  color: #404040;
   border: 1px solid #ccc;
   border-radius: 3px;
   padding: 3px; }
@@ -523,7 +564,7 @@ textarea {
   input[type="datetime-local"]:focus,
   input[type="color"]:focus,
   textarea:focus {
-    color: #111; }
+    color: #404040; }
 
 select {
   border: 1px solid #ccc; }
@@ -538,15 +579,22 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  color: royalblue; }
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 4px solid #21759b;
+  padding-bottom: 2px;
+  color: #404040; }
   a:visited {
-    color: purple; }
+    color: #404040; }
   a:hover, a:focus, a:active {
-    color: midnightblue; }
+    color: #404040; }
   a:focus {
     outline: thin dotted; }
   a:hover, a:active {
     outline: 0; }
+
+a.no-decoration {
+  border-bottom: none; }
 
 /*--------------------------------------------------------------
 ## Menus
@@ -640,7 +688,7 @@ a {
     clip: auto !important;
     -webkit-clip-path: none;
             clip-path: none;
-    color: #21759b;
+    color: #404040;
     display: block;
     font-size: 14px;
     font-size: 0.875rem;
@@ -831,24 +879,9 @@ object {
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
-.site-description {
-  display: none; }
-
-.site-header {
-  background: #21759b; }
-
-p.site-title {
-  margin: 0; }
-
-.site-branding {
-  font-size: 2.4rem; }
-
-.main-navigation li {
-  margin: 0 1rem; }
-
 .content-area,
 .container-add {
-  margin: auto;
+  margin: 0 0 0 10%;
   max-width: 1240px;
   width: 90%; }
 
@@ -856,10 +889,51 @@ p.site-title {
   display: flex; }
 
 .site-branding {
-  flex: 3; }
+  flex: 5; }
 
 .main-navigation {
-  flex: 7;
+  flex: 5;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-self: center; }
+
+.floating-website {
+  box-shadow: 20px 35px 122px rgba(0, 0, 0, 0.3);
+  margin: 32px auto;
+  padding: 32px;
+  width: 90%; }
+
+.site-description {
+  display: none; }
+
+p.site-title {
+  margin: 0; }
+
+.site-branding {
+  font-size: 1rem; }
+
+.main-navigation li {
+  margin: 0 1rem; }
+
+.lead-summary {
+  font-size: 48px;
+  width: 65%;
+  font-style: italic;
+  font-weight: 100;
+  margin: 36px 0; }
+
+.casestudies__grid-wrapper {
+  margin: 16px 0;
+  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); }
+
+.casestudies__grid-left {
+  grid-column: 1 / 2;
+  grid-row: auto;
+  flex: 1; }
+
+.casestudies__grid-right {
+  grid-column: 2 / 4;
+  flex: 3;
+  grid-row: auto; }

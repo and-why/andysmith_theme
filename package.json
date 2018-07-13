@@ -12,7 +12,9 @@
     "browser-sync": "^2.24.5",
     "es6-promise": "^4.2.4",
     "gulp-autoprefixer": "^5.0.0",
+    "gulp-clean-css": "^3.9.4",
     "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^5.0.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-jshint": "^2.1.0",
     "gulp-plumber": "^1.2.0",
@@ -24,5 +26,13 @@
   },
   "dependencies": {
     "gulp": "^3.9.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/and-why/andysmith_theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/and-why/andysmith_theme/issues"
+  },
+  "homepage": "https://github.com/and-why/andysmith_theme#readme"
 }
