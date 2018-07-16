@@ -424,9 +424,9 @@ body:before {
   content: '';
   background-color: #21759b;
   opacity: 0.1;
-  height: 75vh;
+  height: 55vh;
   width: 75vw;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   z-index: -3; }
@@ -435,7 +435,7 @@ body:after {
   content: '';
   background-color: #c55454;
   opacity: 0.1;
-  height: 75vh;
+  height: 55vh;
   width: 75vw;
   position: absolute;
   top: 0;

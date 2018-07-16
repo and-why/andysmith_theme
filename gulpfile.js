@@ -40,7 +40,7 @@ gulp.task('js', () => {
     .src(['./js/*.js'])
     .pipe(eslint())
     .pipe(eslint.format())
-    //.pipe(eslint.failAfterError())
+    .pipe(eslint.failAfterError())
     .pipe(concat('app.js'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
